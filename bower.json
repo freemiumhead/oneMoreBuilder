@@ -1,0 +1,21 @@
+{
+  "name": "front-end-builder",
+  "description": "good frontend builder",
+  "main": "gulpfile.js",
+  "authors": [
+    "scink"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "^2.2.1"
+  }
+}
