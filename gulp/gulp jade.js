@@ -6,21 +6,17 @@ const
 	gulp		= require('gulp'),
 	config	= require('./config'),
 	jade		= require('gulp-jade'),
-	notify	= require('gulp-notify');
+	plumber	= require('gulp-plumber');
 
 module.exports = function() {
 	return function() {
 		return combine( 
 			gulp.src(config.pathTo.src.jade),
+			plumber(),
 			jade({
 				pretty: '\t'
 			}),
 			gulp.dest(config.pathTo.build.jade)
-		).on('error', notify.onError(function(err) {
-			return {
-				title: 'Jade',
-				message: err.message
-			}
-		}));
+		);
 	}
 };

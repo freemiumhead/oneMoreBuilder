@@ -1,0 +1,42 @@
+@font-face {
+  font-weight: 400;
+  font-style: italic;
+  font-family: "Istok Web";
+  src: local("Istok Web Italic"),local(IstokWeb-Italic),url(//fonts.gstatic.com/s/istokweb/v10/8-xqDtEk6sZ61magDpsV8WfQcKutQXcIrRfyR5jdjY8.eot?#) format("eot"),url(//fonts.gstatic.com/s/istokweb/v10/8-xqDtEk6sZ61magDpsV8Y4P5ICox8Kq3LLUNMylGO4.woff2) format("woff2"),url(//fonts.gstatic.com/s/istokweb/v10/8-xqDtEk6sZ61magDpsV8YbN6UDyHWBl620a-IRfuBk.woff) format("woff");
+}
+@font-face {
+  font-weight: 700;
+  font-style: italic;
+  font-family: "Istok Web";
+  src: local("Istok Web Bold Italic"),local(IstokWeb-BoldItalic),url(//fonts.gstatic.com/s/istokweb/v10/ycQ3g52ELrh3o_HYCNNUw7Ft29aCHKT7otDW9l62Aag.eot?#) format("eot"),url(//fonts.gstatic.com/s/istokweb/v10/ycQ3g52ELrh3o_HYCNNUw4lIZu-HDpmDIZMigmsroc4.woff2) format("woff2"),url(//fonts.gstatic.com/s/istokweb/v10/ycQ3g52ELrh3o_HYCNNUwzqR_3kx9_hJXbbyU8S6IN0.woff) format("woff");
+}
+@font-face {
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Istok Web";
+  src: local("Istok Web Regular"),local(IstokWeb-Regular),url(//fonts.gstatic.com/s/istokweb/v10/EvPKapBawcLZ3hbihjhqAfY6323mHUZFJMgTvxaG2iE.eot?#) format("eot"),url(//fonts.gstatic.com/s/istokweb/v10/EvPKapBawcLZ3hbihjhqAVtXRa8TVwTICgirnJhmVJw.woff2) format("woff2"),url(//fonts.gstatic.com/s/istokweb/v10/EvPKapBawcLZ3hbihjhqAT8E0i7KZn-EPnyo3HZu7kw.woff) format("woff");
+}
+@font-face {
+  font-weight: 700;
+  font-style: normal;
+  font-family: "Istok Web";
+  src: local("Istok Web Bold"),local(IstokWeb-Bold),url(//fonts.gstatic.com/s/istokweb/v10/2koEo4AKFSvK4B52O_MwanZ2MAKAc2x4R1uOSeegc5U.eot?#) format("eot"),url(//fonts.gstatic.com/s/istokweb/v10/2koEo4AKFSvK4B52O_Mwaugdm0LZdjqr5-oayXSOefg.woff2) format("woff2"),url(//fonts.gstatic.com/s/istokweb/v10/2koEo4AKFSvK4B52O_MwanhCUOGz7vYGh680lGh-uXM.woff) format("woff");
+}
+body {
+  font-family: 'Istok Web';
+}
+.qwe {
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  background: #000;
+  background: -webkit-linear-gradient(bottom, #fff 0%, #000 100%);
+  background: linear-gradient(to top, #fff 0%, #000 100%);
+  background-image: url("../img/qwe.jpg");
+  font-size: 30px;
+}
+h1 {
+  font-size: 29px;
+}
+
+/*# sourceMappingURL=style.css.map */

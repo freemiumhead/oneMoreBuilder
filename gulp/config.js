@@ -3,7 +3,7 @@ module.exports = {
 	pathTo	: {
 		src	: {
 			fonts		: 'src/fonts/',
-			img		: 'src/img/img/**/*.*',
+			img		: 'src/blocks/**/*.{jpg,png}',
 			jade		: 'src/*.jade',
 			js			: [
 				'src/jsVendor.js',
@@ -19,7 +19,7 @@ module.exports = {
 		},
 		watch	: {
 			all		: 'src/**/*.*',
-			img		: 'src/img/img/**/*.*',
+			img		: 'src/blocks/**/*.{jpg,png}',
 			jade		: 'src/**/*.jade',
 			js			: 'src/**/*.js',
 			stylus	: 'src/**/*.styl',

@@ -10,7 +10,7 @@ const
 	gulpIf	= require('gulp-if'),
 	jsHint	= require('gulp-jshint'),
 	maps		= require('gulp-sourcemaps'),
-	notify	= require('gulp-notify'),
+	plumber	= require('gulp-plumber'),
 	rigger	= require('gulp-rigger'),
 	stylish	= require('jshint-stylish'),
 	uglify	= require('gulp-uglify');
@@ -23,6 +23,7 @@ module.exports = function() {
 
 		return combine(
 			gulp.src(config.pathTo.src.js),
+			plumber(),
 			gulpIf(config.isDev, maps.init()),
 			rigger(),
 			f,
@@ -32,11 +33,6 @@ module.exports = function() {
 			concat('main.js'),
 			gulpIf(config.isDev, maps.write('.'), uglify()),
 			gulp.dest(config.pathTo.build.js)
-		).on('error', notify.onError(function(err) {
-			return {
-				title: 'JavaScript',
-				message: err.message
-			}
-		}));
+		);
 	};
 }

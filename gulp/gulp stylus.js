@@ -7,7 +7,7 @@ const
 	gulp		= require('gulp'),
 	gulpIf	= require('gulp-if'),
 	maps		= require('gulp-sourcemaps'),
-	notify	= require('gulp-notify'),
+	plumber	= require('gulp-plumber'),
 	rename	= require('gulp-rename'),
 	stylus	= require('gulp-stylus'),
 
@@ -25,38 +25,33 @@ const
 
 module.exports = function() {
 	return function() {
-		return combine(
-			gulp.src(config.pathTo.src.stylus),
-			gulpIf(config.isDev, maps.init()),
-			stylus({'include css': true}),
-			postCss([
-				fonts({
-					hosted: config.pathTo.src.fonts
-				}),
+		return gulp
+			.src(config.pathTo.src.stylus)
+			.pipe(plumber())
+			.pipe(gulpIf(
+				config.isDev,
+				maps.init()))
+			.pipe(stylus())
+			.pipe(postCss([
+				fonts(),
 				short(),
 				flexFix(),
-				prefixes({browsers: ['> 1%','ie >= 9','last 2 versions']}),
+				prefixes({
+					browsers: [
+						'> 1%',
+						'ie > 9',
+						'last 2 versions'
+					]
+				}),
 				cssComb({'sort-order': 'zen'}),
-				cssLint({'extends':'src/'}),
+				// cssLint({'extends':'src/'}),
 				doiuse({browsers: 'last 2 versions'})
-			]),
-			gulpIf(!config.isDev, postCss([
-				cssNano()
-			])),
-			gulp.dest(config.pathTo.build.stylus),
-			gulpIf(config.isDev, combine(
-				postCss([
-					cssNano()
-				]),
-				rename({suffix: '.min'}),
+			]))
+			.pipe(gulpIf(
+				config.isDev,
 				maps.write('.'),
-				gulp.dest(config.pathTo.build.stylus)
+				postCss([cssNano()])
 			))
-		).on('error', notify.onError(function(err) {
-			return {
-				title: 'Stylus',
-				message: err.message
-			}
-		}));
-	}
-};
+			.pipe(gulp.dest(config.pathTo.build.stylus));
+	}	
+}

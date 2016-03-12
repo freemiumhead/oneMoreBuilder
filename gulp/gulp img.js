@@ -7,13 +7,14 @@ const
 	gulp		= require('gulp'),
 	imageMin	= require('gulp-imagemin'),
 	newer		= require('gulp-newer'),
-	notify	= require('gulp-notify'),
+	plumber	= require('gulp-plumber'),
 	pngQuant	= require('imagemin-pngquant');
 
 module.exports = function() {
 	return function() {
 		return combine(
 			gulp.src(config.pathTo.src.img),
+			plumber(),
 			newer(config.pathTo.build.img),
 			imageMin({
 				intarlaced			: true,
@@ -28,13 +29,19 @@ module.exports = function() {
 					speed				: 6,
 					verbose			: true,
 				})],
+			})
+			.on('data', function (file) {
+				
+				const a = file.path.split('\\'),
+						b = a.length - 2;
+
+				a.splice(b, 1);
+				const c = a.join('\\');
+				file.path = c;
+
+				return file;
 			}),
 			gulp.dest(config.pathTo.build.img)
-		).on('error', notify.onError(function(err) {
-			return {
-				title: 'Images',
-				message: err.message,
-			}
-		}));
+		);
 	}
 };
