@@ -1,1 +1,11 @@
+mixin svg-ex(name, style)
+	-style = style || ''
+	if style != ''
+		svg(role='img' title='svg_'+name class='svg-' + name + ' ' + style)
+			use(xlink:href='img/svg-sprite.svg#svg-'+name)
+	else
+		svg(role='img' title='svg_'+name class='svg_' + name)
+			use(xlink:href='img/svg-sprite.svg#svg-'+name)
+
 .qwe
++svg-ex('photo-minus')

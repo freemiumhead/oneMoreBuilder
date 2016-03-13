@@ -9,7 +9,6 @@ const
 	gulp		= require('gulp'),
 	gulpIf	= require('gulp-if'),
 	jsHint	= require('gulp-jshint'),
-	maps		= require('gulp-sourcemaps'),
 	plumber	= require('gulp-plumber'),
 	rigger	= require('gulp-rigger'),
 	stylish	= require('jshint-stylish'),
@@ -21,18 +20,17 @@ module.exports = function() {
 			restore: true
 		});
 
-		return combine(
-			gulp.src(config.pathTo.src.js),
-			plumber(),
-			gulpIf(config.isDev, maps.init()),
-			rigger(),
-			f,
-			jsHint(),
-			jsHint.reporter(stylish),
-			f.restore,
-			concat('main.js'),
-			gulpIf(config.isDev, maps.write('.'), uglify()),
-			gulp.dest(config.pathTo.build.js)
-		);
+		return gulp.src(config.pathTo.src.js)
+			.pipe(plumber())
+			.pipe(rigger())
+			.pipe(f)
+			.pipe(jsHint())
+			.pipe(jsHint.reporter(stylish))
+			.pipe(f.restore)
+			.pipe(concat('main.js'))
+			.pipe(gulpIf(
+				!config.isDev,
+				uglify()))
+			.pipe(gulp.dest(config.pathTo.build.js))
 	};
 }

@@ -7,6 +7,8 @@ const
 
 module.exports = function() {
 	return function() {
-		return del(config.pathTo.clean);
+		return del([config.pathTo.clean], {
+			force: true
+		});
 	}
 }

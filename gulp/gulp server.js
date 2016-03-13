@@ -1,3 +1,5 @@
+'use strict';
+
 const
 	gulp		= require('gulp'),
 	bs			= require('browser-sync')

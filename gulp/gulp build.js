@@ -9,6 +9,7 @@ module.exports = function() {
 		return series(
 			'clean',
 			['jade',
+			'svgSprite',
 			'stylus',
 			'img',
 			'js'],

@@ -1,3 +1,5 @@
+'use strict';
+
 const
 	gulp		= require('gulp'),
 	series	= require('run-sequence');

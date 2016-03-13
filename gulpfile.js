@@ -32,6 +32,9 @@ lazyRequireTask('js', './gulp/gulp js.js');
 // task Images
 lazyRequireTask('img', './gulp/gulp img.js');
 
+// task SVG Sprites
+lazyRequireTask('svgSprite', './gulp/gulp svgSprite.js');
+
 // task Watch
 lazyRequireTask('watch', './gulp/gulp watch.js');
 
