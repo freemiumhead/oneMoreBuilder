@@ -1,4 +1,4 @@
-(function(window, document) {
+;(function(window, document) {
 	'use strict';
 	var file = 'img/svg-sprite.svg',	// path to svg-sprite file
 			revision = 1;

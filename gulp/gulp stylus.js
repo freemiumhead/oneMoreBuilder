@@ -22,7 +22,6 @@ const
 	prefixes	= require('autoprefixer'),
 	short		= require('postcss-short');
 
-
 module.exports = function() {
 	return function() {
 		return gulp
@@ -31,17 +30,15 @@ module.exports = function() {
 			.pipe(gulpIf(
 				config.isDev,
 				maps.init()))
-			.pipe(stylus())
+			.pipe(stylus({'include css': true}))
 			.pipe(postCss([
 				fonts(),
 				short(),
 				flexFix(),
-				prefixes({
-					browsers: [
-						'> 1%',
-						'ie > 9',
-						'last 2 versions'
-					]
+				prefixes({browsers: [
+					'> 1%',
+					'ie > 9',
+					'last 2 versions']
 				}),
 				cssComb({'sort-order': 'zen'}),
 				// cssLint({'extends':'src/'}),
@@ -53,5 +50,5 @@ module.exports = function() {
 				postCss([cssNano()])
 			))
 			.pipe(gulp.dest(config.pathTo.build.stylus));
-	}	
+	};
 }

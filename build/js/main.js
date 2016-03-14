@@ -9830,7 +9830,7 @@ if ( !noGlobal ) {
 return jQuery;
 }));
 // svg cashing
-(function(window, document) {
+;(function(window, document) {
 	'use strict';
 	var file = 'img/svg-sprite.svg',	// path to svg-sprite file
 			revision = 1;
@@ -9891,10 +9891,5 @@ document
 		.setAttribute('style', 'display:none');
 
 jQuery(document).ready(function($) {
-	$('body').on('click', '.selector', function(event) {
-		event.preventDefault();
-	
-		$(this)
-			.show();
-	});
+	// put here paths to your scripts
 });

@@ -5,14 +5,17 @@ module.exports = {
 	pathTo	: {
 		src	: {
 			fonts			: 'src/fonts/',
-			img			: 'src/blocks/**/*.{jpg,png}',
-			jade			: 'src/*.jade',
-			js				: [
-				'src/jsVendor.js',
-				'src/jsCustom.js'
+			img			: [
+				'src/blocks/**/*.{jpg,png,svg}',
+				'!src/blocks/**/svg-*.svg',
 			],
-			pngSprite	: 'src/build/**/png-*.png',
-			stylus		: 'src/style.styl',
+			jade			: 'src/layouts/*.jade',
+			js				: [
+				'src/layouts/jsVendor.js',
+				'src/layouts/jsCustom.js',
+			],
+			pngSprite	: 'src/blocks/**/png-*.png',
+			stylus		: 'src/layouts/style.styl',
 			svgSprite	: 'src/blocks/**/svg-*.svg',
 		},
 		build	: {
@@ -25,12 +28,15 @@ module.exports = {
 		},
 		watch	: {
 			all			: 'src/**/*.*',
-			img			: 'src/blocks/**/*.{jpg,png}',
+			img			: [
+				'src/blocks/**/*.{jpg,png,svg}',
+				'!src/blocks/**/svg-*.svg',
+			],
 			jade			: 'src/**/*.jade',
 			js				: 'src/**/*.js',
 			pngSprite	: 'src/blocks/**/png-*.png',
 			stylus		: 'src/**/*.styl',
-			svgSprite	: 'src/blocks/**/svg-*/svg',
+			svgSprite	: 'src/blocks/**/svg-*.svg',
 		},
 		clean	: 'build/*',
 	},

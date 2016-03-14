@@ -8,11 +8,13 @@ module.exports = function() {
 	return function(cb) {
 		return series(
 			'clean',
-			['jade',
-			'svgSprite',
-			'stylus',
-			'img',
-			'js'],
+			[
+				'img',
+				'jade',
+				'js',
+				'stylus',
+				'svgSprite'
+			],
 			cb
 		);
 	}

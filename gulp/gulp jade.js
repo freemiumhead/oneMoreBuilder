@@ -10,13 +10,12 @@ const
 
 module.exports = function() {
 	return function() {
-		return combine( 
-			gulp.src(config.pathTo.src.jade),
-			plumber(),
-			jade({
+		return gulp
+			.src(config.pathTo.src.jade)
+			.pipe(plumber())
+			.pipe(jade({
 				pretty: '\t'
-			}),
-			gulp.dest(config.pathTo.build.jade)
-		);
+			}))
+			.pipe(gulp.dest(config.pathTo.build.jade));
 	}
 };

@@ -1,5 +1,5 @@
 {
-  "name": "front-end-builder",
+  "name": "one-more-biolder",
   "description": "good frontend builder",
   "main": "gulpfile.js",
   "authors": [
@@ -16,6 +16,7 @@
     "tests"
   ],
   "devDependencies": {
-    "jquery": "^2.2.1"
+    "jquery": "^2.2.1",
+    "normalize-styl": "*"
   }
 }

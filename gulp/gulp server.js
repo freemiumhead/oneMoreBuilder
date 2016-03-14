@@ -12,7 +12,7 @@ module.exports = function() {
 			server			: 'build',
 			port				: 7777,
 			injectChanges	: true,
-			logPrefix		: 'Server says',
+			logPrefix		: 'Server says, that',
 			// tunnel			: true,
 		});
 
