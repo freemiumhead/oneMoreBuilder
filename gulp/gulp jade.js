@@ -1,12 +1,11 @@
 'use strict';
 
 const
-	combine	= require('stream-combiner2')
-					.obj,
 	gulp		= require('gulp'),
 	config	= require('./config'),
 	jade		= require('gulp-jade'),
-	plumber	= require('gulp-plumber');
+	plumber	= require('gulp-plumber'),
+	server	= require('browser-sync');
 
 module.exports = function() {
 	return function() {
@@ -16,6 +15,7 @@ module.exports = function() {
 			.pipe(jade({
 				pretty: '\t'
 			}))
-			.pipe(gulp.dest(config.pathTo.build.jade));
+			.pipe(gulp.dest(config.pathTo.build.jade))
+			.pipe(server.reload({stream:true}));
 	}
 };

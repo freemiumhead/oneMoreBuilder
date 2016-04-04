@@ -17,6 +17,7 @@
   ],
   "devDependencies": {
     "jquery": "^2.2.1",
-    "normalize-styl": "*"
+    "normalize-styl": "*",
+    "flex-grid-framework": "^1.2.1"
   }
 }

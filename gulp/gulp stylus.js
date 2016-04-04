@@ -9,6 +9,7 @@ const
 	maps		= require('gulp-sourcemaps'),
 	plumber	= require('gulp-plumber'),
 	rename	= require('gulp-rename'),
+	server	= require('browser-sync'),
 	stylus	= require('gulp-stylus'),
 
 	// postCSS and it's plagins
@@ -32,7 +33,9 @@ module.exports = function() {
 				maps.init()))
 			.pipe(stylus({'include css': true}))
 			.pipe(postCss([
-				fonts(),
+				fonts({
+					formats: 'woff2'
+				}),
 				short(),
 				flexFix(),
 				prefixes({browsers: [
@@ -42,13 +45,16 @@ module.exports = function() {
 				}),
 				cssComb({'sort-order': 'zen'}),
 				// cssLint({'extends':'src/'}),
-				doiuse({browsers: 'last 2 versions'})
 			]))
 			.pipe(gulpIf(
 				config.isDev,
 				maps.write('.'),
-				postCss([cssNano()])
+				postCss([
+					cssNano(),
+					doiuse({browsers: 'last 2 versions'})
+				])
 			))
-			.pipe(gulp.dest(config.pathTo.build.stylus));
+			.pipe(gulp.dest(config.pathTo.build.stylus))
+			.pipe(server.reload({stream:true}));
 	};
 }

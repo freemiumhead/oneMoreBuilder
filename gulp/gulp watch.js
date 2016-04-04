@@ -2,19 +2,25 @@
 
 const
 	config	= require('./config'),
-	gulp		= require('gulp');
+	gulp		= require('gulp'),
+	watch		= require('gulp-watch');
 
 module.exports = function() {
 	return function() {
-		gulp
-			.watch(config.pathTo.watch.stylus, ['stylus']);
-		gulp
-			.watch(config.pathTo.watch.jade, ['jade']);
-		gulp
-			.watch(config.pathTo.watch.img, ['img']);
-		gulp
-			.watch(config.pathTo.watch.js, ['js']);
-		gulp
-			.watch(config.pathTo.watch.svgSprite, ['svgSprite']);
+		watch(config.pathTo.watch.stylus, function() {
+			gulp.start('stylus');
+		});
+		watch(config.pathTo.watch.jade, function() {
+			gulp.start('jade');
+		});
+		watch(config.pathTo.watch.img, function() {
+			gulp.start('img');
+		});
+		watch(config.pathTo.watch.js, function() {
+			gulp.start('js');
+		});
+		watch(config.pathTo.watch.svgSprite, function() {
+			gulp.start('svgSprite');
+		});
 	}
-};
+}

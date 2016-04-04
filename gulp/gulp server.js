@@ -15,9 +15,5 @@ module.exports = function() {
 			logPrefix		: 'Server says, that',
 			// tunnel			: true,
 		});
-
-		bs
-			.watch(config.pathTo.watch.all)
-			.on('change', bs.reload);
 	}
 };

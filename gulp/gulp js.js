@@ -1,8 +1,6 @@
 'use strict';
 
 const
-	combine	= require('stream-combiner2')
-					.obj,
 	concat	= require('gulp-concat'),
 	config	= require('./config'),
 	filter	= require('gulp-filter'),
@@ -11,6 +9,7 @@ const
 	jsHint	= require('gulp-jshint'),
 	plumber	= require('gulp-plumber'),
 	rigger	= require('gulp-rigger'),
+	server	= require('browser-sync'),
 	stylish	= require('jshint-stylish'),
 	uglify	= require('gulp-uglify');
 
@@ -32,5 +31,6 @@ module.exports = function() {
 				!config.isDev,
 				uglify()))
 			.pipe(gulp.dest(config.pathTo.build.js))
+			.pipe(server.reload({stream:true}));
 	};
 }

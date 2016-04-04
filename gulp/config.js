@@ -8,6 +8,7 @@ module.exports = {
 			img			: [
 				'src/blocks/**/*.{jpg,png,svg}',
 				'!src/blocks/**/svg-*.svg',
+				'!src/blocks/styleguide/bicon/*.*',
 			],
 			jade			: 'src/layouts/*.jade',
 			js				: [
@@ -31,6 +32,7 @@ module.exports = {
 			img			: [
 				'src/blocks/**/*.{jpg,png,svg}',
 				'!src/blocks/**/svg-*.svg',
+				'!src/blocks/styleguide/bicon/*.*',
 			],
 			jade			: 'src/**/*.jade',
 			js				: 'src/**/*.js',
