@@ -15,7 +15,7 @@ const
 
 module.exports = function() {
 	return function() {
-		const f = filter(['*/jsCustom.js'], {
+		const f = filter(['**\\jsCustom.js'], {
 			restore: true
 		});
 

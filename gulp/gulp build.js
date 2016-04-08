@@ -9,6 +9,7 @@ module.exports = function() {
 		return series(
 			'clean',
 			[
+				'assets',
 				'img',
 				'jade',
 				'js',

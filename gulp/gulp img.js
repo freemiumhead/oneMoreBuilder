@@ -29,7 +29,7 @@ module.exports = function() {
 					verbose			: true,
 				})],
 			}))
-			.on('data', function (file) {
+			.on('data', function(file) {
 				
 				const a = file.path.split('\\'),
 						b = a.length - 2;

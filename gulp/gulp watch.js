@@ -22,5 +22,8 @@ module.exports = function() {
 		watch(config.pathTo.watch.svgSprite, function() {
 			gulp.start('svgSprite');
 		});
+		watch(config.pathTo.watch.assets, function() {
+			gulp.start('assets');
+		});
 	}
 }

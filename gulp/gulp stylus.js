@@ -34,7 +34,7 @@ module.exports = function() {
 			.pipe(stylus({'include css': true}))
 			.pipe(postCss([
 				fonts({
-					formats: 'woff2'
+					formats: 'woff'
 				}),
 				short(),
 				flexFix(),

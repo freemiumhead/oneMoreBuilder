@@ -2,8 +2,7 @@
 
 const
 	gulp		= require('gulp'),
-	bs			= require('browser-sync')
-					.create(),
+	bs			= require('browser-sync'),
 	config	= require('./config');
 
 module.exports = function() {
