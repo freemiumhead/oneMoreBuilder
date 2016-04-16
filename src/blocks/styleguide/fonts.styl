@@ -1,0 +1,18 @@
+// font names
+exo			= 'Exo 2', sans-serif
+yefimov		= 'yefimov', sans-serif
+
+// weights
+light			= 300
+regular		= 400
+medium		= 500
+semibold		= 600
+
+font(family, weight, style, name)
+	@font-face
+		font-family family
+		font-weight weight
+		font-style style
+		src url('../fonts/'+name+'/'+style+'/'+weight+'.woff') format('woff')
+
+font('yefimov', light, normal, 'yefimov_serif')

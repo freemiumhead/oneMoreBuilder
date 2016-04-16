@@ -7,7 +7,7 @@ module.exports = {
 			assets		: [
 				'bower_components/jquery/dist/jquery.min.js',
 				'src/assets/fonts/**/*.*',
-				'src/assets/modernizr.js',
+				'src/assets/*.js',
 			],
 			img			: [
 				'src/blocks/**/*.{jpg,png,svg}',

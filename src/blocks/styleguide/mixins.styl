@@ -15,3 +15,35 @@ $push-to-left
 
 $hidden
 	display none
+
+$clearfix
+	&:before
+	&:after
+		content ''
+		display table
+		height 0
+		width 100%
+	
+	&:after
+		clear both
+
+btn-color(color)
+	colLight	= lightness(color)
+	colPlus	= colLight + 5%
+	colMinus	= colLight - 5%
+	
+	background-color color
+	transition background-color .3s
+	
+	&:hover
+		background-color lightness(color, colPlus)
+	
+	&:active
+		background-color lightness(color, colMinus)
+
+placeholder()
+	::-webkit-input-placeholder
+	::-moz-placeholder
+	:-moz-placeholder
+	:-ms-input-placeholder
+		{block}

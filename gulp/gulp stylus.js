@@ -7,6 +7,7 @@ const
 	gulp		= require('gulp'),
 	gulpIf	= require('gulp-if'),
 	maps		= require('gulp-sourcemaps'),
+	notify	= require('gulp-notify'),
 	plumber	= require('gulp-plumber'),
 	rename	= require('gulp-rename'),
 	server	= require('browser-sync'),
@@ -33,9 +34,9 @@ module.exports = function() {
 				maps.init()))
 			.pipe(stylus({'include css': true}))
 			.pipe(postCss([
-				fonts({
-					formats: 'woff'
-				}),
+				// fonts({
+				// 	formats: 'woff'
+				// }),
 				short(),
 				flexFix(),
 				prefixes({browsers: [
@@ -46,6 +47,7 @@ module.exports = function() {
 				cssComb({'sort-order': 'zen'}),
 				// cssLint({'extends':'src/'}),
 			]))
+			.on('error', notify.onError())
 			.pipe(gulpIf(
 				config.isDev,
 				maps.write('.'),

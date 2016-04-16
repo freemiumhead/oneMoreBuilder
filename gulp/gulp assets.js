@@ -8,7 +8,7 @@ const
 
 module.exports = function() {
 	return function() {
-		var condition = function(file) {
+		var ifFileIsJs = function(file) {
 			const a = file.path.split('.'),
 					b = a.length - 1;
 
@@ -22,7 +22,7 @@ module.exports = function() {
 		return gulp
 			.src(config.pathTo.src.assets)
 			.pipe(gulpIf(
-				condition,
+				ifFileIsJs,
 				gulp.dest(config.pathTo.build.assets.js),
 				gulp.dest(config.pathTo.build.assets.fonts)
 			));
